@@ -1,4 +1,3 @@
-import { cssBundleHref } from "@remix-run/css-bundle";
 import type { LinksFunction } from "@remix-run/node";
 import {
   Links,
@@ -10,6 +9,7 @@ import {
 } from "@remix-run/react";
 
 import tailwindStyles from "~/tailwind.css";
+import Header from "./components/Header";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: tailwindStyles },
@@ -25,6 +25,7 @@ export default function App() {
         <Links />
       </head>
       <body className="h-full font-mono text-center p-6  text-zinc-900  bg-orange-500 ">
+        <Header />
         <Outlet />
         <ScrollRestoration />
         <Scripts />
