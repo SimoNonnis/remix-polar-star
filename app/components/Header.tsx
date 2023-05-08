@@ -1,16 +1,14 @@
 import { Link, NavLink } from "@remix-run/react";
 
-import robot from "~/images/robot.svg";
-
 export default function Header() {
   return (
     <header>
       <Link to="/">
-        <img src={robot} alt="" className="w-20 h-20 m-auto" />
+        <img src="images/robot.svg" alt="" className="w-20 h-20 m-auto" />
       </Link>
 
-      <ul className="flex justify-center gap-6 overflow-x-scroll py-5">
-        <li className="whitespace-nowrap">
+      <ul className="flex overflow-x-scroll scroll-smooth py-4">
+        <li className="whitespace-nowrap p-2 mx-2">
           <NavLink
             to="/"
             className={({ isActive }) =>
@@ -20,7 +18,7 @@ export default function Header() {
             Home
           </NavLink>
         </li>
-        <li className="whitespace-nowrap">
+        <li className="whitespace-nowrap  p-2 mx-2">
           <NavLink
             to="pricing"
             className={({ isActive }) =>
@@ -30,7 +28,7 @@ export default function Header() {
             pricing
           </NavLink>
         </li>
-        <li className="whitespace-nowrap">
+        <li className="whitespace-nowrap p-2 mx-2">
           <NavLink
             to="auth"
             className={({ isActive }) =>
@@ -40,7 +38,7 @@ export default function Header() {
             Auth
           </NavLink>
         </li>
-        <li className="whitespace-nowrap">
+        <li className="whitespace-nowrap p-2 mx-2">
           <NavLink
             end
             to="expenses"
@@ -51,7 +49,7 @@ export default function Header() {
             Expenses
           </NavLink>
         </li>
-        <li className="whitespace-nowrap">
+        <li className="whitespace-nowrap p-2 mx-2">
           <NavLink
             to="expenses/add"
             className={({ isActive }) =>
@@ -61,7 +59,7 @@ export default function Header() {
             Add Expense
           </NavLink>
         </li>
-        <li className="whitespace-nowrap">
+        <li className="whitespace-nowrap p-2 mx-2">
           <NavLink
             to="/"
             className={({ isActive }) =>
@@ -71,7 +69,7 @@ export default function Header() {
             Edit Expense
           </NavLink>
         </li>
-        <li className="whitespace-nowrap">
+        <li className="whitespace-nowrap p-2 mx-2">
           <NavLink
             to="expenses/raw"
             className={({ isActive }) =>
@@ -81,7 +79,7 @@ export default function Header() {
             Raw Expense
           </NavLink>
         </li>
-        <li className="whitespace-nowrap">
+        <li className="whitespace-nowrap p-2 mx-2">
           <NavLink
             to="expenses/analysis"
             className={({ isActive }) =>
