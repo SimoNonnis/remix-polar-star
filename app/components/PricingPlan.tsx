@@ -1,8 +1,8 @@
 export default function PricingPlan({ title, price, perks }) {
   return (
-    <article>
+    <article className="capitalize">
       <header>
-        <div className="icon">
+        <div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

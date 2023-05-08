@@ -7,7 +7,7 @@ export default function Header() {
         <img src="images/robot.svg" alt="" className="w-20 h-20 m-auto" />
       </Link>
 
-      <ul className="flex overflow-x-scroll scroll-smooth py-4">
+      <ul className="flex overflow-x-scroll scroll-smooth py-4 capitalize">
         <li className="whitespace-nowrap p-2 mx-2">
           <NavLink
             to="/"
