@@ -10,7 +10,7 @@ export default function Header() {
       </Link>
 
       <ul className="flex justify-center gap-6 overflow-x-scroll py-5">
-        <li className="whitespace-nowrap" className="whitespace-nowrap">
+        <li className="whitespace-nowrap">
           <NavLink
             to="/"
             className={({ isActive }) =>
@@ -20,7 +20,7 @@ export default function Header() {
             Home
           </NavLink>
         </li>
-        <li className="whitespace-nowrap" className="whitespace-nowrap">
+        <li className="whitespace-nowrap">
           <NavLink
             to="pricing"
             className={({ isActive }) =>
