@@ -8,9 +8,9 @@ export const meta: V2_MetaFunction = () => {
 
 export default function ExpensesLayoutPage() {
   return (
-    <>
+    <main>
       <Title>Shared Expenses Page</Title>
       <Outlet />
-    </>
+    </main>
   );
 }
