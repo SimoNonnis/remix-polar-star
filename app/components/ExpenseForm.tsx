@@ -5,7 +5,14 @@ function ExpenseForm() {
     <form method="post" id="expense-form">
       <div>
         <label htmlFor="name">Expense Name</label>
-        <input id="name" type="text" name="name" required maxLength={30} />
+        <input
+          id="name"
+          type="text"
+          name="name"
+          required
+          maxLength={30}
+          className="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
+        />
       </div>
 
       <div className="form-row">
@@ -18,11 +25,19 @@ function ExpenseForm() {
             min="0"
             step="0.01"
             required
+            className="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
           />
         </div>
         <div>
           <label htmlFor="date">Date</label>
-          <input id="date" type="date" name="date" max={today} required />
+          <input
+            id="date"
+            type="date"
+            name="date"
+            max={today}
+            required
+            className="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
+          />
         </div>
       </div>
       <div className="form-actions">

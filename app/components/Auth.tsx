@@ -19,7 +19,13 @@ export default function AuthForm() {
       </div>
       <div>
         <label htmlFor="email">Email</label>
-        <input id="email" type="email" name="email" required />
+        <input
+          id="email"
+          type="email"
+          name="email"
+          required
+          className="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
+        />
       </div>
       <div>
         <label htmlFor="password">Password</label>
@@ -29,6 +35,7 @@ export default function AuthForm() {
           name="password"
           required
           minLength={4}
+          className="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
         />
       </div>
       <div>
