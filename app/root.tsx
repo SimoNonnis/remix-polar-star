@@ -25,8 +25,11 @@ export default function App() {
         <Links />
       </head>
       <body className="h-full font-mono text-center p-6  text-slate-700  bg-orange-500 ">
-        <Header />
-        <Outlet />
+        <main className="max-w-3xl  m-auto">
+          <Header />
+          <Outlet />
+        </main>
+
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
