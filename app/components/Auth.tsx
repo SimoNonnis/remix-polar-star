@@ -1,3 +1,4 @@
+import FormInput from "./FormInput";
 export default function AuthForm() {
   return (
     <form method="post">
@@ -17,27 +18,17 @@ export default function AuthForm() {
           />
         </svg>
       </div>
-      <div>
-        <label htmlFor="email">Email</label>
-        <input
-          id="email"
-          type="email"
-          name="email"
-          required
-          className="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
-        />
-      </div>
-      <div>
-        <label htmlFor="password">Password</label>
-        <input
-          id="password"
-          type="password"
-          name="password"
-          required
-          minLength={4}
-          className="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
-        />
-      </div>
+
+      <FormInput id="email" text="Email" type="email" name="email" required />
+
+      <FormInput
+        id="password"
+        text="Password"
+        type="password"
+        name="password"
+        required
+        minLength={4}
+      />
       <div>
         <button>Register</button>
         <a href="/auth">Log in with existing user</a>
