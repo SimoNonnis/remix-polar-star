@@ -4,7 +4,7 @@ import Navigation from "~/components/Navigation";
 const links = [
   { to: "/", page: "Home" },
   { to: "/pricing", page: "Pricing" },
-  { to: "/auth", page: "Auth" },
+  { to: "/auth", page: "Login" },
   { to: "/expenses", page: "Expenses", end: true },
 ];
 

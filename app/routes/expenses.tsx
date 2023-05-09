@@ -8,7 +8,6 @@ const links = [
   { to: "raw", page: "Raw Expense" },
   { to: "add", page: "Add Expense" },
   { to: "add", page: "Edit Expense" },
-  { to: "analysis", page: "Expense Analysis" },
 ];
 
 export const meta: V2_MetaFunction = () => {
