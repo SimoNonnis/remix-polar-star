@@ -1,5 +1,5 @@
 import type { V2_MetaFunction } from "@remix-run/node";
-import Title from "~/components/Title";
+
 import PricingPlan from "~/components/PricingPlan";
 const plans = [
   {
@@ -19,8 +19,7 @@ export const meta: V2_MetaFunction = () => {
 
 export default function PricingPage() {
   return (
-    <main>
-      <Title>Pricing Page</Title>
+    <section className="mt-12 rounded-lg bg-orange-100 p-8 shadow-inner ">
       {plans.map((plan) => (
         <PricingPlan
           key={plan.title}
@@ -29,6 +28,6 @@ export default function PricingPage() {
           perks={plan.perks}
         />
       ))}
-    </main>
+    </section>
   );
 }
