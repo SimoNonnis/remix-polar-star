@@ -12,7 +12,7 @@ export default function Header() {
   return (
     <header className="mx-auto">
       <Link to="/">
-        <img src="images/robot.svg" alt="" className="w-20 h-20 m-auto" />
+        <img src="/images/robot.svg" alt="" className="w-20 h-20 m-auto" />
       </Link>
 
       <Navigation links={links} />
