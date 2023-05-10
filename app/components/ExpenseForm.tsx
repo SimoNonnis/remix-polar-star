@@ -1,4 +1,5 @@
 import FormInput from "~/components/FormInput";
+import Button from "./Button";
 
 function ExpenseForm() {
   const today = new Date().toISOString().slice(0, 10); // yields something like 2023-09-10
@@ -33,9 +34,11 @@ function ExpenseForm() {
         max={today}
       />
 
-      <div className="form-actions">
-        <button>Save Expense</button>
-        <a href="tbd">Cancel</a>
+      <div className="text-left">
+        <Button>Save Expense</Button>
+        <a href="tbd" className="mx-4">
+          Cancel
+        </a>
       </div>
     </form>
   );
