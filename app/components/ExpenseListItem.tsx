@@ -4,16 +4,18 @@ function ExpenseListItem({ title, amount }) {
   }
 
   return (
-    <article className="expense-item">
-      <div>
-        <h2 className="expense-title">{title}</h2>
-        <p className="expense-amount">${amount.toFixed(2)}</p>
+    <li className="flex justify-between rounded-lg bg-orange-500 p-8 shadow-inner my-8 ">
+      <div className="text-left">
+        <h2 className="font-semibold">{title}</h2>
+        <p>${amount.toFixed(2)}</p>
       </div>
-      <menu className="expense-actions">
-        <button onClick={deleteExpenseItemHandler}>Delete</button>
+      <menu className="">
+        <button className="me-6" onClick={deleteExpenseItemHandler}>
+          Delete
+        </button>
         <a href="tbd">Edit</a>
       </menu>
-    </article>
+    </li>
   );
 }
 
