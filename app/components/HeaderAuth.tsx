@@ -3,11 +3,11 @@ import Navigation from "~/components/Navigation";
 
 const links = [
   { to: "/", page: "Home" },
-  { to: "/pricing", page: "Pricing" },
   { to: "/expenses", page: "Expenses", end: true },
+  { to: "/expenses/add", page: "Add Expense" },
 ];
 
-export default function Header() {
+export default function HeaderAuth() {
   return (
     <header className="mx-auto">
       <Logo />

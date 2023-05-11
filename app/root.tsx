@@ -9,7 +9,6 @@ import {
 } from "@remix-run/react";
 
 import tailwindStyles from "~/tailwind.css";
-import Header from "./components/Header";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: tailwindStyles },
@@ -26,7 +25,6 @@ export default function App() {
       </head>
       <body className="h-full font-mono text-center p-6  text-slate-700  bg-orange-500 ">
         <main className="max-w-3xl  m-auto">
-          <Header />
           <Outlet />
         </main>
 
