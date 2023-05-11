@@ -1,15 +1,9 @@
 import type { V2_MetaFunction } from "@remix-run/node";
-import { Outlet } from "@remix-run/react";
+import { Link, Outlet } from "@remix-run/react";
 
 import Title from "~/components/Title";
-import Navigation from "~/components/Navigation";
+import Button from "~/components/Button";
 import ExpensesList from "~/components/ExpensesList";
-
-const links = [
-  { to: "raw", page: "Raw Expense" },
-  { to: "add", page: "Add Expense" },
-  { to: "add", page: "Edit Expense" },
-];
 
 const DUMMY_EXPENSES = [
   {
@@ -51,7 +45,9 @@ export default function ExpensesLayoutPage() {
 
         <Title>Expenses</Title>
       </div>
-      <Navigation links={links} />
+
+      <Button to="add">add expense</Button>
+
       <Outlet />
       <ExpensesList expenses={DUMMY_EXPENSES} />
     </section>
