@@ -1,3 +1,5 @@
+import { Link } from "@remix-run/react";
+
 import FormInput from "~/components/FormInput";
 import Button from "~/components/Button";
 
@@ -36,9 +38,9 @@ function ExpenseForm() {
 
       <div className="text-left">
         <Button>Save Expense</Button>
-        <a href="tbd" className="mx-4">
+        <Link to=".." className="mx-4">
           Cancel
-        </a>
+        </Link>
       </div>
     </form>
   );
