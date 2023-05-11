@@ -40,14 +40,16 @@ export default function PricingPage() {
         <Title>Pricing</Title>
       </div>
 
-      {plans.map((plan) => (
-        <PricingPlan
-          key={plan.title}
-          title={plan.title}
-          price={plan.price}
-          perks={plan.perks}
-        />
-      ))}
+      <div className="grid sm:grid-cols-2 sm:gap-6">
+        {plans.map((plan) => (
+          <PricingPlan
+            key={plan.title}
+            title={plan.title}
+            price={plan.price}
+            perks={plan.perks}
+          />
+        ))}
+      </div>
     </section>
   );
 }
