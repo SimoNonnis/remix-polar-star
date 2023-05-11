@@ -1,24 +1,11 @@
 import type { V2_MetaFunction } from "@remix-run/node";
-import { Link, Outlet } from "@remix-run/react";
+import { Outlet } from "@remix-run/react";
 
 import Title from "~/components/Title";
 import Button from "~/components/Button";
 import ExpensesList from "~/components/ExpensesList";
 
-const DUMMY_EXPENSES = [
-  {
-    id: "e1",
-    title: "First Expense",
-    amount: 12.99,
-    date: new Date().toISOString(),
-  },
-  {
-    id: "e2",
-    title: "Second Expense",
-    amount: 16.99,
-    date: new Date().toISOString(),
-  },
-];
+import DUMMY_EXPENSES from "~/data/dummy";
 
 export const meta: V2_MetaFunction = () => {
   return [{ title: "Shared Expenses Page" }];
