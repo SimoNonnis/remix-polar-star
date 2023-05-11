@@ -1,10 +1,5 @@
-import type { V2_MetaFunction } from "@remix-run/node";
-import Title from "~/components/Title";
+import DUMMY_EXPENSES from "~/data/dummy";
 
-export const meta: V2_MetaFunction = () => {
-  return [{ title: "Expenses Raw Page" }];
-};
-
-export default function ExpensesRawPage() {
-  return <Title>Expenses Raw Page</Title>;
+export function loader() {
+  return DUMMY_EXPENSES;
 }
