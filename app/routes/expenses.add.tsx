@@ -1,6 +1,6 @@
 import type { V2_MetaFunction } from "@remix-run/node";
 
-import Title from "~/components/Title";
+import Modal from "~/components/Modal";
 import ExpenseForm from "~/components/ExpenseForm";
 
 export const meta: V2_MetaFunction = () => {
@@ -9,9 +9,8 @@ export const meta: V2_MetaFunction = () => {
 
 export default function AddExpensesPage() {
   return (
-    <main>
-      <Title>Add Expenses Page</Title>
+    <Modal onClose={() => console.log("Close Add")}>
       <ExpenseForm />
-    </main>
+    </Modal>
   );
 }

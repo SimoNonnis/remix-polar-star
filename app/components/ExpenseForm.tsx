@@ -1,52 +1,46 @@
 import FormInput from "~/components/FormInput";
-import Button from "./Button";
+import Button from "~/components/Button";
 
 function ExpenseForm() {
   const today = new Date().toISOString().slice(0, 10); // yields something like 2023-09-10
 
   return (
-    <div className="fixed top-0 left-0 w-full h-screen	bg-slate-900/80">
-      <div className="h-screen grid place-items-center">
-        <div className="w-96	h-96 rounded-lg bg-orange-100 p-8 shadow-inner">
-          <form method="post">
-            <FormInput
-              id="name"
-              text="Expense Name"
-              type="text"
-              name="name"
-              required
-              maxLength={30}
-            />
+    <form method="post">
+      <FormInput
+        id="name"
+        text="Expense Name"
+        type="text"
+        name="name"
+        required
+        maxLength={30}
+      />
 
-            <FormInput
-              id="amount"
-              text="Amount"
-              type="number"
-              name="amount"
-              required
-              min="0"
-              step="0.01"
-            />
+      <FormInput
+        id="amount"
+        text="Amount"
+        type="number"
+        name="amount"
+        required
+        min="0"
+        step="0.01"
+      />
 
-            <FormInput
-              id="date"
-              text="Date"
-              type="date"
-              name="date"
-              required
-              max={today}
-            />
+      <FormInput
+        id="date"
+        text="Date"
+        type="date"
+        name="date"
+        required
+        max={today}
+      />
 
-            <div className="text-left">
-              <Button>Save Expense</Button>
-              <a href="tbd" className="mx-4">
-                Cancel
-              </a>
-            </div>
-          </form>
-        </div>
+      <div className="text-left">
+        <Button>Save Expense</Button>
+        <a href="tbd" className="mx-4">
+          Cancel
+        </a>
       </div>
-    </div>
+    </form>
   );
 }
 
