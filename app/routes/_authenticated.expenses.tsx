@@ -47,7 +47,9 @@ export default function ExpensesLayoutPage() {
             />
           </svg>
 
-          <a href="/expenses/raw">Load raw data</a>
+          <a target="_blank" href="/expenses/raw">
+            Load raw data
+          </a>
         </div>
       </div>
 
