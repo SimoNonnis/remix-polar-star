@@ -8,8 +8,6 @@ type Props = {
 };
 
 export default function Button({ children, to, typeSubmit }: Props) {
-  console.log(typeSubmit);
-
   const classes =
     "capitalize border-2 border-orange-500 bg-orange-500 hover:bg-transparent text-orange-100 hover:text-slate-700 rounded-md p-2 max-w-xs m-auto transition-colors duration-300";
 
