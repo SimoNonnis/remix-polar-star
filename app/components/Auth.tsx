@@ -28,7 +28,7 @@ export default function AuthForm() {
         minLength={4}
       />
       <div className="text-left">
-        <Button>{submitBtn}</Button>
+        <Button typeSubmit>{submitBtn}</Button>
         <span className="mx-4">or</span>
         <Link to={optionLink} className="underline">
           {optionButton}

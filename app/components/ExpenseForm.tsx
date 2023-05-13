@@ -37,7 +37,7 @@ function ExpenseForm() {
       />
 
       <div className="text-left">
-        <Button>Save Expense</Button>
+        <Button typeSubmit>Save Expense</Button>
         <Link to=".." className="mx-4">
           Cancel
         </Link>
