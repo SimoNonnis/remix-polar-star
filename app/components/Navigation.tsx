@@ -16,7 +16,7 @@ export default function Navigation({ links }) {
           </NavLink>
         </li>
       ))}
-      <li className="whitespace-nowrap p-2 mx-2">
+      <li className="whitespace-nowrap py-2">
         <NavLink
           to="/auth"
           className=" hover:bg-amber-300 bg-amber-400 rounded-md px-4 py-3 transition-colors duration-300"
