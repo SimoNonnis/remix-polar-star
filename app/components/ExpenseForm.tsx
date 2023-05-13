@@ -9,10 +9,10 @@ function ExpenseForm() {
   return (
     <form method="post">
       <FormInput
-        id="name"
+        id="title"
         text="Expense Name"
         type="text"
-        name="name"
+        name="title"
         required
         maxLength={30}
       />
