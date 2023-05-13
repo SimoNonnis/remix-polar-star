@@ -7,10 +7,13 @@ export default function AuthForm() {
   const [searchParams] = useSearchParams();
   const authMode = searchParams.get("mode");
 
-  const submitBtn = authMode === "register" ? "Register" : "Login";
-  const optionButton =
-    authMode === "register" ? "Log in with existing user" : "Create a new user";
-  const optionLink = authMode === "register" ? "?mode=login" : "?mode=register";
+  const isLoginMode = authMode === "login";
+  const submitBtn = isLoginMode ? "Login" : "Register";
+  const optionButton = isLoginMode
+    ? "Create a new user"
+    : "Log in with existing user";
+
+  const optionLink = isLoginMode ? "?mode=register" : "?mode=login";
 
   return (
     <form method="post">
