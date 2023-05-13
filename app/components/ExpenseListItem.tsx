@@ -4,7 +4,6 @@ function ExpenseListItem({ id, title, amount }) {
   function deleteExpenseItemHandler() {
     // tbd
   }
-  console.log(id);
 
   return (
     <li className="flex justify-between rounded-lg bg-orange-500 p-8 shadow-inner my-8 ">
