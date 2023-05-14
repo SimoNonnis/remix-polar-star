@@ -8,7 +8,8 @@ function ExpenseForm() {
   const today = new Date().toISOString().slice(0, 10); // yields something like 2023-09-10
   const navigation = useNavigation();
   const isBusy = navigation.state !== "idle";
-  const submitButtonText = isBusy ? "...Saving" : "Save Expense";
+  const submitButtonText = isBusy ? "......Saving" : "Save Expense";
+
   return (
     <Form method="post">
       <FormInput
