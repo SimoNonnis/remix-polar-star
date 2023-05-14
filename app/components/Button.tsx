@@ -5,7 +5,7 @@ type Props = {
   children: string | ReactElement;
   to?: string;
   typeSubmit?: undefined | boolean;
-  disabled: undefined | boolean;
+  disabled?: undefined | boolean;
 };
 
 export default function Button({ children, to, typeSubmit, disabled }: Props) {
