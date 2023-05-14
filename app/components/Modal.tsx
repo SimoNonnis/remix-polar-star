@@ -9,7 +9,7 @@ export default function Modal({ children, onClose }) {
         onClick={(event) => event.stopPropagation()}
         className="h-screen grid place-items-center bg-transparent"
       >
-        <div className="w-96	h-96 rounded-lg bg-orange-100 p-8 shadow-inner">
+        <div className="w-96	min-h-fit rounded-lg bg-orange-100 p-8 shadow-inner">
           {children}
         </div>
       </dialog>
