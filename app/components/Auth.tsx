@@ -1,4 +1,4 @@
-import { useSearchParams, Link } from "@remix-run/react";
+import { Form, useSearchParams, Link } from "@remix-run/react";
 
 import FormInput from "~/components/FormInput";
 import Button from "~/components/Button";
@@ -16,7 +16,7 @@ export default function AuthForm() {
   const optionLink = isLoginMode ? "?mode=register" : "?mode=login";
 
   return (
-    <form method="post">
+    <Form method="post">
       <FormInput id="email" text="Email" type="email" name="email" required />
 
       <FormInput
@@ -34,6 +34,6 @@ export default function AuthForm() {
           {optionButton}
         </Link>
       </div>
-    </form>
+    </Form>
   );
 }

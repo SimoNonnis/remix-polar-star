@@ -1,4 +1,4 @@
-import { Link, useActionData } from "@remix-run/react";
+import { Form, Link, useActionData } from "@remix-run/react";
 
 import FormInput from "~/components/FormInput";
 import Button from "~/components/Button";
@@ -9,7 +9,7 @@ function ExpenseForm() {
   const today = new Date().toISOString().slice(0, 10); // yields something like 2023-09-10
 
   return (
-    <form method="post">
+    <Form method="post">
       <FormInput
         id="title"
         text="Expense Name"
@@ -52,7 +52,7 @@ function ExpenseForm() {
           Cancel
         </Link>
       </div>
-    </form>
+    </Form>
   );
 }
 
