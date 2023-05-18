@@ -1,10 +1,10 @@
 import { Outlet, useLoaderData } from "@remix-run/react";
 
+import { getExpenses } from "~/api/expenses.server";
+
 import Title from "~/components/Title";
 import Button from "~/components/Button";
 import ExpensesList from "~/components/ExpensesList";
-
-import { getExpenses } from "~/api/expenses.server";
 
 export function meta() {
   return [{ title: "My Expenses" }];

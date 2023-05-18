@@ -1,4 +1,10 @@
-import { Form, Link, useActionData, useNavigation } from "@remix-run/react";
+import {
+  Form,
+  Link,
+  useActionData,
+  useLoaderData,
+  useNavigation,
+} from "@remix-run/react";
 
 import FormInput from "~/components/FormInput";
 import Button from "~/components/Button";
@@ -9,6 +15,8 @@ function ExpenseForm() {
   const navigation = useNavigation();
   const isBusy = navigation.state !== "idle";
   const submitButtonText = isBusy ? "Saving......" : "Save Expense";
+  const expenseData = useLoaderData();
+  console.log("🚀 -> ExpenseForm -> expenseData: ", expenseData);
 
   return (
     <Form method="post">
