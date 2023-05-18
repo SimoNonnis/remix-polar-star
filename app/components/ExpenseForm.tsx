@@ -14,7 +14,7 @@ function ExpenseForm() {
     <Form method="post">
       <FormInput
         id="title"
-        text="Expense Name"
+        text="Expense Title"
         type="text"
         name="title"
         required

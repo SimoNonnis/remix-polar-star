@@ -1,17 +1,23 @@
-import type { V2_MetaFunction } from "@remix-run/node";
-import { Outlet } from "@remix-run/react";
+import { Outlet, useLoaderData } from "@remix-run/react";
 
 import Title from "~/components/Title";
 import Button from "~/components/Button";
 import ExpensesList from "~/components/ExpensesList";
 
-import DUMMY_EXPENSES from "~/data/dummy";
+import { getExpenses } from "~/api/expenses.server";
 
-export const meta: V2_MetaFunction = () => {
+export function meta() {
   return [{ title: "My Expenses" }];
-};
+}
+
+export async function loader() {
+  const expenses = await getExpenses();
+  return expenses;
+}
 
 export default function ExpensesLayoutPage() {
+  const expenses = useLoaderData();
+
   return (
     <section className="mt-12 rounded-lg bg-orange-100 p-8 shadow-inner ">
       <div className="flex justify-center items-center">
@@ -54,7 +60,7 @@ export default function ExpensesLayoutPage() {
       </div>
 
       <Outlet />
-      <ExpensesList expenses={DUMMY_EXPENSES} />
+      <ExpensesList expenses={expenses} />
     </section>
   );
 }

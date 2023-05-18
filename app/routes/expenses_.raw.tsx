@@ -1,5 +1,7 @@
-import DUMMY_EXPENSES from "~/data/dummy";
+import { getExpenses } from "~/api/expenses.server";
 
-export function loader() {
-  return DUMMY_EXPENSES;
+export async function loader() {
+  const expenses = await getExpenses();
+
+  return expenses;
 }
