@@ -10,9 +10,8 @@ export function meta() {
   return [{ title: "My Expenses" }];
 }
 
-export async function loader() {
-  const expenses = await getExpenses();
-  return expenses;
+export function loader() {
+  return getExpenses();
 }
 
 export default function ExpensesLayoutPage() {
