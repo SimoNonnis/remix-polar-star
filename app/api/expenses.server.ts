@@ -1,4 +1,4 @@
-import { prisma } from "./database.server";
+import { prisma } from "~/api/database.server";
 
 export async function addExpense(expenseData) {
   try {
