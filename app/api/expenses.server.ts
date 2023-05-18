@@ -30,7 +30,10 @@ export async function getExpenses() {
 
 export async function getExpenseById(id) {
   try {
-    const expense = await prisma.expense.findFirst({ where: { id } });
+    const expense = await prisma.expense.findFirst({
+      where: { id },
+      select: { title: true, amount: true, date: true },
+    });
 
     return expense;
   } catch (error) {

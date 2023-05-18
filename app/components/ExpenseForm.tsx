@@ -10,13 +10,19 @@ import FormInput from "~/components/FormInput";
 import Button from "~/components/Button";
 
 function ExpenseForm() {
+  const expenseData = useLoaderData();
   const validationErrors = useActionData();
+
   const today = new Date().toISOString().slice(0, 10); // yields something like 2023-09-10
   const navigation = useNavigation();
   const isBusy = navigation.state !== "idle";
   const submitButtonText = isBusy ? "Saving......" : "Save Expense";
-  const expenseData = useLoaderData();
-  console.log("🚀 -> ExpenseForm -> expenseData: ", expenseData);
+
+  const defaultValues = {
+    title: expenseData?.title || "",
+    amount: expenseData?.amount || "",
+    date: expenseData?.date || "",
+  };
 
   return (
     <Form method="post">
@@ -27,6 +33,7 @@ function ExpenseForm() {
         name="title"
         required
         maxLength={30}
+        defaultValue={defaultValues.title}
       />
 
       <FormInput
@@ -37,6 +44,7 @@ function ExpenseForm() {
         required
         min="0"
         step="0.01"
+        defaultValue={defaultValues.amount}
       />
 
       <FormInput
@@ -46,6 +54,7 @@ function ExpenseForm() {
         name="date"
         required
         max={today}
+        defaultValue={defaultValues.date ? defaultValues.date.slice(0, 10) : ""}
       />
 
       {validationErrors && (
