@@ -9,7 +9,7 @@ function ExpenseListItem({ id, title, amount }) {
     <li className="flex justify-between rounded-lg bg-orange-500 p-8 shadow-inner my-8 ">
       <div className="text-left">
         <h2 className="font-semibold">{title}</h2>
-        <p>${amount.toFixed(2)}</p>
+        <p>&#8381;{amount.toFixed(2)}</p>
       </div>
       <menu className="bg-orange-100 rounded-lg px-8 py-4 shadow-inner grid grid-cols-2 divide-x divide-slate-700">
         <button className="me-6" onClick={deleteExpenseItemHandler}>
