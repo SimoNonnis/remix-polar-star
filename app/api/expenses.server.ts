@@ -19,6 +19,7 @@ export async function getExpenses() {
   try {
     const expenses = await prisma.expense.findMany({
       orderBy: { date: "desc" },
+      select: { id: true, title: true, amount: true, date: true },
     });
 
     return expenses;
