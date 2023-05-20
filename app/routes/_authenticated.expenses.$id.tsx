@@ -5,6 +5,7 @@ import { useNavigate } from "@remix-run/react";
 import Modal from "~/components/Modal";
 import ExpenseForm from "~/components/ExpenseForm";
 
+import { validateExpenseInput } from "~/utils/validation.server";
 import { updateExpense } from "~/api/expenses.server";
 
 export const meta: V2_MetaFunction = () => {
@@ -29,7 +30,12 @@ export async function action({ params, request }) {
   const formData = await request.formData();
   const expenseData = Object.fromEntries(formData);
 
-  await updateExpense(params.id, expenseData);
+  try {
+    validateExpenseInput(expenseData);
+  } catch (error) {
+    return error;
+  }
 
+  await updateExpense(params.id, expenseData);
   return redirect("/expenses");
 }
