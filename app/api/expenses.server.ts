@@ -29,6 +29,7 @@ export async function getExpenses() {
   }
 }
 
+// ! Not in use anymore. Left here just for reference.
 export async function getExpenseById(id) {
   try {
     const expense = await prisma.expense.findFirst({

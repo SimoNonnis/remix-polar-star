@@ -2,15 +2,24 @@ import {
   Form,
   Link,
   useActionData,
-  useLoaderData,
+  useMatches,
   useNavigation,
+  useParams,
 } from "@remix-run/react";
 
 import FormInput from "~/components/FormInput";
 import Button from "~/components/Button";
 
 function ExpenseForm() {
-  const expenseData = useLoaderData();
+  const params = useParams();
+  const matches = useMatches();
+  const expenseDataAll = matches.find(
+    (mtch) => mtch.id === "routes/_authenticated.expenses"
+  ).data;
+  const expenseData = expenseDataAll.find(
+    (expense) => expense.id === params.id
+  );
+
   const validationErrors = useActionData();
 
   const today = new Date().toISOString().slice(0, 10); // yields something like 2023-09-10
