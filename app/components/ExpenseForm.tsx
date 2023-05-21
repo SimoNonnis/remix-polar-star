@@ -34,7 +34,7 @@ function ExpenseForm() {
   };
 
   return (
-    <Form method="post">
+    <Form method={expenseData ? "patch" : "post"}>
       <FormInput
         id="title"
         text="Expense Title"
