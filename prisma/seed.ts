@@ -4,7 +4,9 @@ const prisma = new PrismaClient();
 
 // TODO. Date YYYY-MM-DDTHH:mm:ss.sssZ
 const seedData = [
-  { title: "test", amount: 12.0, date: "Sat Sep 13 275760 00:00:00 GMT+0000" },
+  { title: "Test one", amount: 10.0, date: "2023-05-01T00:00:00.000Z" },
+  { title: "Test two", amount: 20.0, date: "2023-05-13T00:00:00.000Z" },
+  { title: "Test tree", amount: 30.0, date: "2023-04-26T00:00:00.000Z" },
 ];
 
 async function seed() {
