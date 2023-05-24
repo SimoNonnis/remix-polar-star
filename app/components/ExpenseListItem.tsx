@@ -12,7 +12,7 @@ function ExpenseListItem({ id, title, amount }) {
         <p>&#8381;{amount.toFixed(2)}</p>
       </div>
       <menu className="bg-orange-100 rounded-lg px-8 py-4 shadow-inner grid grid-cols-2 divide-x divide-slate-700">
-        <Form method="delete" action={`${id}`}>
+        <Form method="delete" action={`/expenses/${id}`}>
           <button className="me-6">Delete</button>
         </Form>
 
