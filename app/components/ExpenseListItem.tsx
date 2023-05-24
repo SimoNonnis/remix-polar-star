@@ -1,9 +1,22 @@
-import { Link, Form } from "@remix-run/react";
+import { Link, Form, useFetcher } from "@remix-run/react";
 
 function ExpenseListItem({ id, title, amount }) {
-  // function deleteExpenseItemHandler() {
-  //   // TODO
-  // }
+  const fetcher = useFetcher();
+
+  function deleteExpenseItemHandler() {
+    fetcher.submit(null, {
+      method: "delete",
+      action: `/expenses/${id}`,
+    });
+  }
+
+  if (fetcher.state !== "idle") {
+    return (
+      <li className="flex justify-center rounded-lg bg-orange-500 p-12 shadow-inner my-8 ">
+        ...Deleting
+      </li>
+    );
+  }
 
   return (
     <li className="flex justify-between rounded-lg bg-orange-500 p-8 shadow-inner my-8 ">
@@ -12,9 +25,13 @@ function ExpenseListItem({ id, title, amount }) {
         <p>&#8381;{amount.toFixed(2)}</p>
       </div>
       <menu className="bg-orange-100 rounded-lg px-8 py-4 shadow-inner grid grid-cols-2 divide-x divide-slate-700">
-        <Form method="delete" action={`/expenses/${id}`}>
-          <button className="me-6">Delete</button>
-        </Form>
+        <button
+          type="button"
+          onClick={deleteExpenseItemHandler}
+          className="me-6"
+        >
+          Delete
+        </button>
 
         <Link to={id}>Edit</Link>
       </menu>
