@@ -8,7 +8,6 @@ function ExpensesList({ expenses }) {
       </p>
     );
   }
-  console.log(expenses.length);
 
   return (
     <ol>
