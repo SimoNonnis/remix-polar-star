@@ -1,8 +1,6 @@
 import { PrismaClient } from "@prisma/client";
-
 const prisma = new PrismaClient();
 
-// TODO. Date YYYY-MM-DDTHH:mm:ss.sssZ
 const seedData = [
   { title: "Test one", amount: 10.0, date: "2023-05-01T00:00:00.000Z" },
   { title: "Test two", amount: 20.0, date: "2023-05-13T00:00:00.000Z" },
