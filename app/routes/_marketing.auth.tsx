@@ -1,5 +1,6 @@
 import type { V2_MetaFunction } from "@remix-run/node";
 import { useSearchParams } from "@remix-run/react";
+import { redirect } from "@remix-run/node";
 import Title from "~/components/Title";
 import AuthForm from "~/components/Auth";
 
@@ -57,4 +58,19 @@ export default function AuthPage() {
       <AuthForm />
     </section>
   );
+}
+
+export async function action({ request }) {
+  const formData = await request.formData();
+  const credentials = Object.fromEntries(formData);
+  const searchParams = new URL(request.url).searchParams;
+  const authMode = searchParams.get("mode") || "login";
+
+  if (authMode === "login") {
+    // TODO Login the user
+  } else {
+    // TODO Register logic
+  }
+
+  return redirect("/expenses");
 }
