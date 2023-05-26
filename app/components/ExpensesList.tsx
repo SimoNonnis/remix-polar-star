@@ -1,10 +1,15 @@
+import { Link } from "@remix-run/react";
 import ExpenseListItem from "~/components/ExpenseListItem";
 
 function ExpensesList({ expenses }) {
   if (expenses.length === 0) {
     return (
       <p className="my-6">
-        You don't have any expense yet. Start adding expenses today.
+        You don't have any expense yet. Start{" "}
+        <Link to="add" className="underline">
+          adding some{" "}
+        </Link>
+        today.
       </p>
     );
   }
