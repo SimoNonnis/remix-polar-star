@@ -1,8 +1,11 @@
 import type { V2_MetaFunction } from "@remix-run/node";
 import { useSearchParams } from "@remix-run/react";
 import { redirect } from "@remix-run/node";
+
 import Title from "~/components/Title";
 import AuthForm from "~/components/Auth";
+
+import { validateCredentials } from "~/utils/validation.server";
 
 export const meta: V2_MetaFunction = () => {
   return [{ title: "AuthPage" }];
@@ -65,6 +68,12 @@ export async function action({ request }) {
   const credentials = Object.fromEntries(formData);
   const searchParams = new URL(request.url).searchParams;
   const authMode = searchParams.get("mode") || "login";
+
+  try {
+    validateCredentials(credentials);
+  } catch (error) {
+    return error;
+  }
 
   if (authMode === "login") {
     // TODO Login the user

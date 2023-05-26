@@ -1,4 +1,4 @@
-import { Form, useSearchParams, Link } from "@remix-run/react";
+import { Form, useSearchParams, Link, useActionData } from "@remix-run/react";
 
 import FormInput from "~/components/FormInput";
 import Button from "~/components/Button";
@@ -6,6 +6,7 @@ import Button from "~/components/Button";
 export default function AuthForm() {
   const [searchParams] = useSearchParams();
   const authMode = searchParams.get("mode");
+  const validationErrors = useActionData();
 
   const isLoginMode = authMode === "login";
   const submitBtn = isLoginMode ? "Login" : "Register";
@@ -27,6 +28,15 @@ export default function AuthForm() {
         required
         minLength={4}
       />
+
+      {validationErrors && (
+        <ul className="mb-6">
+          {Object.values(validationErrors).map((error) => (
+            <li key={error}>{error}</li>
+          ))}
+        </ul>
+      )}
+
       <div className="text-left">
         <Button typeSubmit>{submitBtn}</Button>
         <span className="mx-4">or</span>
