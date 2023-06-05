@@ -6,7 +6,7 @@ import Title from "~/components/Title";
 import AuthForm from "~/components/Auth";
 
 import { validateCredentials } from "~/utils/validation.server";
-import signup from "~/utils/auth.server";
+import { signup } from "~/utils/auth.server";
 
 export const meta: V2_MetaFunction = () => {
   return [{ title: "AuthPage" }];

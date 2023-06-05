@@ -1,4 +1,4 @@
-import { hash } from "bcryptjs";
+import { hash, compare } from "bcryptjs";
 
 import { prisma } from "~/api/database.server";
 
@@ -7,9 +7,8 @@ interface UserCredentials {
   password: string;
 }
 
-export default async function signup({ email, password }: UserCredentials) {
+export async function signup({ email, password }: UserCredentials) {
   const existingUser = await prisma.user.findFirst({ where: { email } });
-  console.log("🚀 -> signup -> existingUser: ", existingUser);
 
   if (existingUser) {
     const error = new Error(
@@ -21,7 +20,31 @@ export default async function signup({ email, password }: UserCredentials) {
   }
 
   const hashed = await hash(password, 12);
-  console.log("🚀 -> signup -> passowrdHash: ", hashed);
 
   await prisma.user.create({ data: { email, password: hashed } });
+}
+
+export async function login({ email, password }: UserCredentials) {
+  const existingUser = await prisma.user.findFirst({ where: { email } });
+
+  if (!existingUser) {
+    const error = new Error(
+      "Could not log you in, please check the provided credentials."
+    );
+    error.status = 401;
+
+    throw error;
+  }
+
+  const passwordCorrect = compare(password, existingUser.password);
+
+  if (!passwordCorrect) {
+    const error = new Error(
+      "Could not log you in, please check the provided credentials."
+    );
+    error.status = 401;
+    throw error;
+  }
+
+  // TODO Crete user session
 }
