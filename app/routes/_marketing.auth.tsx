@@ -6,6 +6,7 @@ import Title from "~/components/Title";
 import AuthForm from "~/components/Auth";
 
 import { validateCredentials } from "~/utils/validation.server";
+import signup from "~/utils/auth.server";
 
 export const meta: V2_MetaFunction = () => {
   return [{ title: "AuthPage" }];
@@ -67,7 +68,7 @@ export async function action({ request }) {
   const formData = await request.formData();
   const credentials = Object.fromEntries(formData);
   const searchParams = new URL(request.url).searchParams;
-  const authMode = searchParams.get("mode") || "login";
+  const authMode = searchParams.get("mode") || "register";
 
   try {
     validateCredentials(credentials);
@@ -75,11 +76,16 @@ export async function action({ request }) {
     return error;
   }
 
-  if (authMode === "login") {
-    // TODO Login the user
-  } else {
-    // TODO Register logic
+  try {
+    if (authMode === "login") {
+      // TODO Login the user
+    } else {
+      await signup(credentials);
+      return redirect("/expenses");
+    }
+  } catch (error) {
+    if (error.status === 422) {
+      return { credentials: error.message };
+    }
   }
-
-  return redirect("/expenses");
 }
