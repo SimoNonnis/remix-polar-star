@@ -6,7 +6,7 @@ import Title from "~/components/Title";
 import AuthForm from "~/components/Auth";
 
 import { validateCredentials } from "~/utils/validation.server";
-import { signup } from "~/utils/auth.server";
+import { login, signup } from "~/utils/auth.server";
 
 export const meta: V2_MetaFunction = () => {
   return [{ title: "AuthPage" }];
@@ -78,11 +78,12 @@ export async function action({ request }) {
 
   try {
     if (authMode === "login") {
-      // TODO Login the user
+      await login(credentials);
     } else {
       await signup(credentials);
-      return redirect("/expenses");
     }
+
+    return redirect("/expenses");
   } catch (error) {
     if (error.status === 422) {
       return { credentials: error.message };
