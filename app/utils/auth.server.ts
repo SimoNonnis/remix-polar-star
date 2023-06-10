@@ -20,7 +20,7 @@ async function createUserSession(userId: string) {
 
   session.set("userId", userId);
 
-  return redirect("expenses", {
+  return redirect("/expenses", {
     headers: {
       "Set-Cookie": await sessionStorage.commitSession(session),
     },
@@ -46,7 +46,9 @@ export async function signup({ email, password }: UserCredentials) {
 
   const hashed = await hash(password, 12);
 
-  await prisma.user.create({ data: { email, password: hashed } });
+  const user = await prisma.user.create({ data: { email, password: hashed } });
+
+  return createUserSession(user.id);
 }
 
 export async function login({ email, password }: UserCredentials) {
