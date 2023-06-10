@@ -1,6 +1,31 @@
 import { hash, compare } from "bcryptjs";
+import { createCookieSessionStorage, redirect } from "@remix-run/node";
 
 import { prisma } from "~/api/database.server";
+
+const SESSION_SECRET = process.env.SESSION_SECRET;
+
+const sessionStorage = createCookieSessionStorage({
+  cookie: {
+    secure: process.env.NODE_ENV === "production",
+    secrets: [SESSION_SECRET],
+    sameSite: "lax",
+    maxAge: 30 * 24 * 60 * 60, // 30 days
+    httpOnly: true,
+  },
+});
+
+async function createUserSession(userId: string) {
+  const session = await sessionStorage.getSession();
+
+  session.set("userId", userId);
+
+  return redirect("expenses", {
+    headers: {
+      "Set-Cookie": await sessionStorage.commitSession(session),
+    },
+  });
+}
 
 interface UserCredentials {
   email: string;
@@ -46,5 +71,5 @@ export async function login({ email, password }: UserCredentials) {
     throw error;
   }
 
-  // TODO Crete user session
+  return createUserSession(existingUser.id);
 }

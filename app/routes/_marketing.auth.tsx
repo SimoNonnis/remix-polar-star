@@ -1,6 +1,5 @@
 import type { V2_MetaFunction } from "@remix-run/node";
 import { useSearchParams } from "@remix-run/react";
-import { redirect } from "@remix-run/node";
 
 import Title from "~/components/Title";
 import AuthForm from "~/components/Auth";
@@ -78,12 +77,10 @@ export async function action({ request }) {
 
   try {
     if (authMode === "login") {
-      await login(credentials);
+      return await login(credentials);
     } else {
-      await signup(credentials);
+      return await signup(credentials);
     }
-
-    return redirect("/expenses");
   } catch (error) {
     if (error.status === 422) {
       return { credentials: error.message };
