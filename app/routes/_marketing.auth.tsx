@@ -13,7 +13,7 @@ export const meta: V2_MetaFunction = () => {
 
 export default function AuthPage() {
   const [searchParams] = useSearchParams();
-  const authMode = searchParams.get("mode");
+  const authMode = searchParams.get("mode") || "login";
 
   const isLoginMode = authMode === "login";
 
@@ -67,7 +67,7 @@ export async function action({ request }) {
   const formData = await request.formData();
   const credentials = Object.fromEntries(formData);
   const searchParams = new URL(request.url).searchParams;
-  const authMode = searchParams.get("mode") || "register";
+  const authMode = searchParams.get("mode") || "login";
 
   try {
     validateCredentials(credentials);

@@ -5,7 +5,7 @@ import Button from "~/components/Button";
 
 export default function AuthForm() {
   const [searchParams] = useSearchParams();
-  const authMode = searchParams.get("mode");
+  const authMode = searchParams.get("mode") || "login";
   const validationErrors = useActionData();
 
   const isLoginMode = authMode === "login";
