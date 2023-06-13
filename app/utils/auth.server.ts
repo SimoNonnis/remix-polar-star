@@ -27,6 +27,19 @@ async function createUserSession(userId: string) {
   });
 }
 
+export async function getUserFromSession(request) {
+  const session = await sessionStorage.getSession(
+    request.headers.get("Cookie")
+  );
+  const userId = session.get("userId");
+
+  if (!userId) {
+    return null;
+  }
+
+  return userId;
+}
+
 interface UserCredentials {
   email: string;
   password: string;
