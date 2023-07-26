@@ -1,4 +1,4 @@
-import { useLoaderData, NavLink } from "@remix-run/react";
+import { useLoaderData, NavLink, Form } from "@remix-run/react";
 
 export default function Navigation({ links }) {
   const userId = useLoaderData();
@@ -28,11 +28,11 @@ export default function Navigation({ links }) {
           </NavLink>
         )}
         {userId && (
-          <form>
+          <Form>
             <button className=" hover:bg-amber-300 bg-amber-400 rounded-md px-4 py-3 transition-colors duration-300">
               Logout
             </button>
-          </form>
+          </Form>
         )}
       </li>
     </ul>
