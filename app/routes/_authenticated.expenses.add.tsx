@@ -6,6 +6,7 @@ import ExpenseForm from "~/components/ExpenseForm";
 
 import { addExpense } from "~/api/expenses.server";
 import { validateExpenseInput } from "~/utils/validation.server";
+import { requireUserSession } from "~/utils/auth.server";
 
 export function meta() {
   return [{ title: "Add Expenses Page" }];
@@ -25,6 +26,7 @@ export default function AddExpensesPage() {
 }
 
 export async function action({ request }) {
+  const userId = await requireUserSession(request);
   const formData = await request.formData();
   const expenseData = Object.fromEntries(formData);
 
@@ -34,7 +36,7 @@ export async function action({ request }) {
     return error;
   }
 
-  await addExpense(expenseData);
+  await addExpense(expenseData, userId);
 
   return redirect("/expenses");
 }

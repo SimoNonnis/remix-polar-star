@@ -58,6 +58,8 @@ export async function requireUserSession(request) {
   if (!userId) {
     throw redirect("/auth?mode=login");
   }
+
+  return userId;
 }
 
 interface UserCredentials {

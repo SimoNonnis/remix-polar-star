@@ -12,9 +12,9 @@ export function meta() {
 }
 
 export async function loader({ request }) {
-  await requireUserSession(request);
+  const userId = await requireUserSession(request);
 
-  return getExpenses();
+  return getExpenses(userId);
 }
 
 export default function ExpensesLayoutPage() {
