@@ -1,5 +1,6 @@
 import { Outlet, useLoaderData } from "@remix-run/react";
 
+import { requireUserSession } from "~/utils/auth.server";
 import { getExpenses } from "~/api/expenses.server";
 
 import Title from "~/components/Title";
@@ -10,7 +11,9 @@ export function meta() {
   return [{ title: "My Expenses" }];
 }
 
-export function loader() {
+export async function loader({ request }) {
+  await requireUserSession(request);
+
   return getExpenses();
 }
 
