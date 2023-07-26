@@ -28,7 +28,7 @@ export default function Navigation({ links }) {
           </NavLink>
         )}
         {userId && (
-          <Form>
+          <Form method="post" action="/logout">
             <button className=" hover:bg-amber-300 bg-amber-400 rounded-md px-4 py-3 transition-colors duration-300">
               Logout
             </button>
