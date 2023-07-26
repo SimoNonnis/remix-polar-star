@@ -52,6 +52,14 @@ export async function destroyUserSession(request) {
   });
 }
 
+export async function requireUserSession(request) {
+  const userId = await getUserFromSession(request);
+
+  if (!userId) {
+    throw redirect("/auth?mode=login");
+  }
+}
+
 interface UserCredentials {
   email: string;
   password: string;

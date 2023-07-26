@@ -1,9 +1,10 @@
 import { Outlet } from "@remix-run/react";
 
-import { getUserFromSession } from "~/utils/auth.server";
+import { getUserFromSession, requireUserSession } from "~/utils/auth.server";
 import HeaderAuth from "~/components/HeaderAuth";
 
-export function loader({ request }) {
+export async function loader({ request }) {
+  await requireUserSession(request);
   const userId = getUserFromSession(request);
 
   return userId;
